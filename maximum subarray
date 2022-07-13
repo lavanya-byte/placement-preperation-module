@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int ma=INT_MIN,s=0;
+        for(int i=0;i<nums.size();i++){
+            s=max(nums[i],s+nums[i]);
+            ma=max(s,ma);
+        }
+        return ma;
+    }
+};
+//kadane algorithm
