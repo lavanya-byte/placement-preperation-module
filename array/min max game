@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int count=0;
+    int minMaxGame(vector<int>& nums) {
+        if(nums.size()==1){
+            count=nums[0];
+            return count;
+        }
+        vector<int>v(nums.size()/2,0);
+        int j=0;
+        for(int i=0;i<nums.size();){
+            if(j%2==0){
+                v[j]=min(nums[i],nums[i+1]);
+                i=i+2;
+                j++;
+            }
+            else{
+                v[j]=max(nums[i],nums[i+1]);
+                i=i+2;
+                j++;
+            }
+        }
+        return minMaxGame(v);
+    }
+};
