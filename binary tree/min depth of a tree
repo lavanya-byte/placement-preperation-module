@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int count=INT_MAX;
+    void depth(TreeNode* root,int ans){
+        if(!root){
+            return;
+        }
+        if(!root->left && !root->right){
+            count=min(count,ans);  
+            return;
+        }
+        depth(root->left,ans+1);
+        depth(root->right,ans+1);
+        return;
+    }
+    int minDepth(TreeNode* root) {
+        if(!root){
+            return 0;
+        }
+        depth(root,1);
+        return count;
+    }
+};
